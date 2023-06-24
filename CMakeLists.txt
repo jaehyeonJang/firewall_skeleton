@@ -26,7 +26,7 @@ install (FILES firewall_archive/init/firewall-manager
 
 set(SERVICE_FILE "firewall_archive/init/firewall-manager.service")
 install (FILES ${SERVICE_FILE}
-        DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/systemd/system/
+        DESTINATION /lib/systemd/system/
 	PERMISSIONS OWNER_WRITE OWNER_READ GROUP_READ WORLD_READ
 	COMPONENT configurations
 )
