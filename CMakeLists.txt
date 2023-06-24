@@ -15,7 +15,7 @@ project (network-firewall)
 find_package(PkgConfig REQUIRED)
 
 # Check xtables
-pkg_check_modules(XTABLES REQUIRED xtables)
+#pkg_check_modules(XTABLES REQUIRED xtables)
 
 # Configuration File
 install (FILES firewall_archive/init/firewall-manager
