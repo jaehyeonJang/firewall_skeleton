@@ -27,11 +27,11 @@ install (FILES firewall_archive/init/firewall-manager
 set(SERVICE_FILE "firewall_archive/init/firewall-manager.service")
 install (FILES ${SERVICE_FILE}
         DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/systemd/system/
-    PERMISSIONS OWNER_WRITE OWNER_READ GROUP_READ WORLD_READ
-    COMPONENT configurations
+	PERMISSIONS OWNER_WRITE OWNER_READ GROUP_READ WORLD_READ
+	COMPONENT configurations
 )
 
-file (GLOB POLICIES  "firewall_archive/rule/*.conf")
+set(POLICIES  "firewall_archive/rule/*.conf")
 install (FILES ${POLICIES}
         DESTINATION ${CMAKE_INSTALL_PREFIX}/etc/firewall-manager/
         PERMISSIONS OWNER_WRITE OWNER_READ
