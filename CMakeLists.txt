@@ -31,7 +31,7 @@ install (FILES ${SERVICE_FILE}
     COMPONENT configurations
 )
 
-file (GLOB POLICIES RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "firewall_archive/rule/*.conf")
+file (GLOB POLICIES  "firewall_archive/rule/*.conf")
 install (FILES ${POLICIES}
         DESTINATION /etc/firewall-manager/
         PERMISSIONS OWNER_WRITE OWNER_READ
