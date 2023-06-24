@@ -1,0 +1,44 @@
+#!/bin/sh
+#
+# Copyright(c) 2022 LG Electronics
+#
+# * Title : Network Firewall Rule Loader
+# * Author: autosec-firewall-dev@lge.com
+#
+PATH=/sbin:/usr/sbin/:/bin:/usr/bin
+IP4TABLES_RESTORE="/usr/sbin/iptables-restore -w"
+IP6TABLES_RESTORE="/usr/sbin/ip6tables-restore -w"
+DEFAULT_RULE="/etc/network-firewall/20_wl_static.conf"
+IPV4_DROP="/etc/network-firewall/10_ipv4_drop.conf"
+FLUSH_RULE="/etc/network-firewall/30_flush.conf"
+
+load() {
+	echo -n "Load network firewall rules ... "
+	if [ -r $1 ]; then
+		echo -n "$1 "
+		$IP4TABLES_RESTORE $2 < "$IPV4_DROP" 2>> /dev/null &&
+		$IP6TABLES_RESTORE $2 < "$1" 2>> /dev/null
+		if [ $? -ne 0 ]; then
+			echo "failure"
+			return 3
+		else
+			echo "success"
+		fi
+	else
+		echo "failure"
+		return 3
+	fi
+}
+
+case "$1" in
+    start|restart)
+#        load $DEFAULT_RULE
+    ;;
+    stop)
+#        load $FLUSH_RULE
+    ;;
+    *)
+        echo "Usage: $0 start|stop|restart" >&2
+        exit 3
+    ;;
+esac
