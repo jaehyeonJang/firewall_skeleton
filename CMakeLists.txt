@@ -33,7 +33,7 @@ install (FILES ${SERVICE_FILE}
 
 file (GLOB POLICIES  "firewall_archive/rule/*.conf")
 install (FILES ${POLICIES}
-        DESTINATION /etc/firewall-manager/
+        DESTINATION ${CMAKE_INSTALL_PREFIX}/etc/firewall-manager/
         PERMISSIONS OWNER_WRITE OWNER_READ
         COMPONENT configurations
 )
