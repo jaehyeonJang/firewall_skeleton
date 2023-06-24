@@ -31,7 +31,7 @@ install (FILES ${SERVICE_FILE}
 	COMPONENT configurations
 )
 
-set(POLICIES  "firewall_archive/rule/*.conf")
+set(POLICIES  "firewall_archive/rules/*.conf")
 install (FILES ${POLICIES}
         DESTINATION ${CMAKE_INSTALL_PREFIX}/etc/firewall-manager/
         PERMISSIONS OWNER_WRITE OWNER_READ
