@@ -10,4 +10,16 @@
 #
 # LICENSE@@@
 
-add_subdirectory(firewall_data)
+# Configuration File
+install (FILES firewall-manager
+	DESTINATION ${CMAKE_INSTALL_PREFIX}/bin/
+	PERMISSIONS OWNER_EXECUTE OWNER_WRITE OWNER_READ
+	COMPONENT configurations
+)
+
+set(SERVICE_FILE "firewall-manager.service")
+install (FILES ${SERVICE_FILE}
+	DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/systemd/system/
+    PERMISSIONS OWNER_WRITE OWNER_READ GROUP_READ WORLD_READ
+    COMPONENT configurations
+)

@@ -1,2 +1,2 @@
-# skeleton_firewall
-Firewall git branch skeleton
+# sample_service
+bb service file sample

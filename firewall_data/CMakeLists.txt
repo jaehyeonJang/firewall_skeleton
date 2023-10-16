@@ -10,4 +10,5 @@
 #
 # LICENSE@@@
 
-add_subdirectory(firewall_data)
+add_subdirectory(init)
+add_subdirectory(rule)

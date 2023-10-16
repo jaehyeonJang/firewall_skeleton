@@ -10,4 +10,15 @@
 #
 # LICENSE@@@
 
-add_subdirectory(firewall_data)
+file (READ base.in common_base_rule)
+file (READ whitelist_static.in common_wl_rule)
+
+configure_file(layout.in unknown.conf @only)
+list (APPEND RULES ${CMAKE_CURRENT_BINARY_DIR}/unknown.conf)
+
+# Configuration File
+install (FILES ${RULES}
+	DESTINATION /etc/firewall-manager/
+	PERMISSIONS OWNER_WRITE OWNER_READ
+	COMPONENT configurations
+)
