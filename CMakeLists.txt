@@ -10,4 +10,4 @@
 #
 # LICENSE@@@
 
-add_subdirectory(firewall_data)
+add_subdirectory(firewall_files)
